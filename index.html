@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王梦涵 · 计算机科学学生 / 前端开发者</title>
+  <meta id="meta-description" name="description" content="王梦涵的个人作品集：前端工程、交互设计与可视化。">
+  <meta name="theme-color" content="#05060f">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="王梦涵 · 个人作品集">
+  <meta property="og:description" content="计算机科学学生 · 前端开发者。用代码构建有温度的交互体验。">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+  <!-- Tailwind Play CDN: zero-build requirement. Custom theme lives in theme.css. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    if (window.tailwind) {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: '#05060f',
+              neon: { cyan: '#22d3ee', violet: '#a855f7', pink: '#f472b6' }
+            },
+            fontFamily: {
+              sans: ['"Noto Sans SC"', '"PingFang SC"', '"Microsoft YaHei"', 'system-ui', 'sans-serif'],
+              mono: ['"JetBrains Mono"', '"Cascadia Code"', 'Consolas', 'monospace']
+            }
+          }
+        }
+      };
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容 / Skip to content</a>
+
+  <!-- Fixed background layers -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- ================= Header ================= -->
+  <header class="site-header">
+    <div class="container-page">
+      <nav class="nav-shell" aria-label="主导航 / Main navigation">
+        <a class="brand" href="#home">
+          <span class="brand-orb" aria-hidden="true"></span>
+          <span id="brand-name">王梦涵</span>
+        </a>
+
+        <div class="nav-links">
+          <a class="nav-link" data-nav href="#home">首页</a>
+          <a class="nav-link" data-nav href="#about">关于</a>
+          <a class="nav-link" data-nav href="#skills">技能</a>
+          <a class="nav-link" data-nav href="#projects">作品</a>
+          <a class="nav-link" data-nav href="#contact">联系</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-admin" href="./admin.html" title="编辑个人资料">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3l2.2 5.4L20 10.5l-5.8 2.1L12 18l-2.2-5.4L4 10.5l5.8-2.1L12 3z"/>
+            </svg>
+            管理后台
+          </a>
+
+          <button id="menu-toggle" class="menu-toggle" type="button"
+                  aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="mobile-menu" hidden>
+        <a class="nav-link" data-nav href="#home">首页</a>
+        <a class="nav-link" data-nav href="#about">关于</a>
+        <a class="nav-link" data-nav href="#skills">技能</a>
+        <a class="nav-link" data-nav href="#projects">作品</a>
+        <a class="nav-link" data-nav href="#contact">联系</a>
+        <a class="nav-link" href="./admin.html">管理后台</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= Hero ================= -->
+    <section id="home" class="hero-section" aria-labelledby="hero-name">
+      <div class="container-page">
+        <div class="hero-grid">
+          <div>
+            <div id="hero-status" class="status-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span id="hero-status-text">开放实习与项目合作</span>
+            </div>
+
+            <h1 id="hero-name" class="hero-name gradient-text">王梦涵</h1>
+            <p id="hero-name-en" class="hero-name-en" lang="en">Wang Menghan</p>
+
+            <p id="hero-title" class="hero-title">计算机科学学生 · 前端开发者</p>
+            <p id="hero-title-en" class="hero-title-en" lang="en">Computer Science Student · Frontend Developer</p>
+
+            <p id="hero-bio" class="hero-bio">
+              我是王梦涵，一名计算机科学专业的学生，专注于前端工程、交互设计与可视化。
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">
+                查看作品
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <a id="hero-mail" class="btn btn-ghost" href="mailto:menghan.wang@example.com">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="3"/>
+                  <path d="m4 7 8 6 8-6"/>
+                </svg>
+                联系我
+              </a>
+            </div>
+
+            <div id="hero-socials" class="hero-socials" aria-label="社交链接"></div>
+
+            <div class="hero-stats" aria-label="数据概览">
+              <div class="stat">
+                <div id="stat-projects" class="stat-value">04</div>
+                <div class="stat-label">项目 Projects</div>
+              </div>
+              <div class="stat">
+                <div id="stat-skills" class="stat-value">12</div>
+                <div class="stat-label">技能 Skills</div>
+              </div>
+              <div class="stat">
+                <div id="stat-tracks" class="stat-value">04</div>
+                <div class="stat-label">方向 Tracks</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="avatar-shell">
+              <div class="avatar-glow" aria-hidden="true"></div>
+              <div class="avatar-ring">
+                <div class="avatar-inner">
+                  <img id="hero-avatar-img" class="avatar-img" alt="王梦涵的头像"
+                       loading="lazy" decoding="async" referrerpolicy="no-referrer" hidden>
+                  <span id="hero-avatar-fallback" class="avatar-fallback" aria-hidden="true">王</span>
+                </div>
+              </div>
+            </div>
+            <p class="avatar-caption">// building things for the web</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= About ================= -->
+    <section id="about" class="section-block" aria-labelledby="about-title">
+      <div class="container-page">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-eyebrow">01 — About</p>
+            <h2 id="about-title" class="section-title">
+              关于我 <span class="text-dim">/ About</span>
+            </h2>
+            <p class="section-subtitle">
+              逻辑与美感并不冲突：我享受把复杂系统拆解成清晰模块的过程，也享受为它设计一个让人愿意停留的界面。
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="glass-card reveal">
+            <h3 class="card-title">你好，很高兴认识你 👋</h3>
+            <div id="about-bio" class="bio-text mt-4">
+              <p>我是王梦涵，一名计算机科学专业的学生。</p>
+            </div>
+            <div id="about-socials" class="chip-row mt-6" aria-label="社交链接"></div>
+          </div>
+
+          <div class="glass-card reveal">
+            <h3 class="card-title">基本信息 / Info</h3>
+            <div class="info-list">
+              <div id="about-location-row" class="info-row">
+                <span class="info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/>
+                    <circle cx="12" cy="10" r="2.6"/>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">所在地 · Location</div>
+                  <div id="about-location" class="info-value">中国 · 杭州</div>
+                </div>
+              </div>
+
+              <div id="about-email-row" class="info-row">
+                <span class="info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="3"/>
+                    <path d="m4 7 8 6 8-6"/>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">邮箱 · Email</div>
+                  <a id="about-email" class="info-value" href="mailto:menghan.wang@example.com">menghan.wang@example.com</a>
+                </div>
+              </div>
+
+              <div id="about-availability-row" class="info-row">
+                <span class="info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 3 2.1 5.4L20 10.5l-5.9 2.1L12 18l-2.1-5.4L4 10.5l5.9-2.1L12 3z"/>
+                  </svg>
+                </span>
+                <div>
+                  <div class="info-label">当前状态 · Status</div>
+                  <div id="about-availability" class="info-value">开放实习与项目合作</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chip-row mt-6">
+              <span class="chip">Frontend</span>
+              <span class="chip">Canvas</span>
+              <span class="chip">Algorithms</span>
+              <span class="chip">UI / UX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Skills ================= -->
+    <section id="skills" class="section-block" aria-labelledby="skills-title">
+      <div class="container-page">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-eyebrow">02 — Skills</p>
+            <h2 id="skills-title" class="section-title">
+              技能矩阵 <span class="text-dim">/ Skills</span>
+            </h2>
+            <p class="section-subtitle">
+              从界面到系统，从原型到部署。百分比代表我的自评熟练度，而不是绝对标准。
+            </p>
+          </div>
+          <span id="skills-count" class="chip">12 项技能 · 4 个方向</span>
+        </div>
+
+        <div id="skills-grid" class="grid-skills">
+          <!-- Rendered by assets/js/index.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Projects ================= -->
+    <section id="projects" class="section-block" aria-labelledby="projects-title">
+      <div class="container-page">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-eyebrow">03 — Projects</p>
+            <h2 id="projects-title" class="section-title">
+              精选项目 <span class="text-dim">/ Projects</span>
+            </h2>
+            <p class="section-subtitle">
+              一些课程、竞赛与自学过程中完成的作品。每个项目都尽量做到可运行、可解释、可维护。
+            </p>
+          </div>
+          <span id="projects-count" class="chip">4 个作品</span>
+        </div>
+
+        <div id="projects-grid" class="grid-projects">
+          <!-- Rendered by assets/js/index.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Contact ================= -->
+    <section id="contact" class="section-block" aria-labelledby="contact-title">
+      <div class="container-page">
+        <div class="cta-card reveal">
+          <div class="flex justify-center">
+            <p class="section-eyebrow">04 — Contact</p>
+          </div>
+          <h2 id="contact-title" class="section-title">
+            和 <span id="contact-name">我</span> 一起做点有趣的东西
+          </h2>
+          <p class="section-subtitle mx-auto">
+            无论是实习机会、课程合作，还是单纯想聊聊技术与设计，都欢迎给我发一封邮件。
+          </p>
+
+          <div class="hero-actions justify-center">
+            <a id="contact-email" class="btn btn-primary" href="mailto:menghan.wang@example.com">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="3"/>
+                <path d="m4 7 8 6 8-6"/>
+              </svg>
+              <span id="contact-email-text">menghan.wang@example.com</span>
+            </a>
+            <a class="btn btn-ghost" href="./admin.html">管理后台</a>
+          </div>
+
+          <p class="text-dim mt-6">通常会在 24 小时内回复 · 期待你的来信</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="site-footer">
+    <div class="container-page footer-inner">
+      <p>
+        © <span id="footer-year">2026</span>
+        <span id="footer-name">王梦涵</span>
+        · 用 HTML5 Canvas 与 Tailwind CSS 构建
+      </p>
+      <div class="footer-links">
+        <a href="#home">回到顶部</a>
+        <a href="./admin.html">管理后台</a>
+        <div id="footer-socials" class="chip-row" aria-label="社交链接"></div>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <div class="container-page noscript-note">
+      本网站需要 JavaScript 才能读取并展示作品集数据，请在浏览器中启用 JavaScript。
+    </div>
+  </noscript>
+
+  <script src="./assets/js/store.js"></script>
+  <script src="./assets/js/starfield.js"></script>
+  <script src="./assets/js/index.js"></script>
+</body>
+</html>
